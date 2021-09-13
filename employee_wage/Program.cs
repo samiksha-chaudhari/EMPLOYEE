@@ -1,18 +1,18 @@
 ﻿using System;
+using System.IO;
 
-
-namespace employeeWage
+namespace EmpWage
 {
-    class Program
-    {  static void Main(string[] args)
-        {
-            EmpWageBuilderObject Dmart = new EmpWageBuilderObject("Dmart", 20, 2, 10);
-            EmpWageBuilderObject Reliancee = new EmpWageBuilderObject("Reliance", 10, 4, 20);
-            Dmart.computeEmpWage();
-            Console.WriteLine(Dmart.toString());
-            Reliancee.computeEmpWage();
-            Console.WriteLine(Reliancee.toString());
 
+    public class Program
+    {
+        static void Main(string[] args)
+        {
+            //Welcome message
+            EmpWageBuilder empWageBuilder = new EmpWageBuilder();
+            empWageBuilder.addCompanyEmp("Dmart", 20, 20, 58);
+            empWageBuilder.addCompanyEmp("Reliance", 25, 10, 70);
+            empWageBuilder.computeEmpWage();
         }
     }
 }
