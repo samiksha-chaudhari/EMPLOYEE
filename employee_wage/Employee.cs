@@ -2,24 +2,37 @@
 using System.Collections.Generic;
 using System.Text;
 
-//namespace employee_wage
-//{
-    class Employee
+namespace employeeWage
+{
+    public class EmpWageBuilderObject
     {
         //Contant
         public const int IS_FULL_TIME = 1;
         public const int IS_PART_TIME = 2;
-        //public const int EMP_RATE_PER_HOUR = 20;
-        //public const int NUM_OF_WORKING_DAYS = 20;
-        //public const int MAX_HRS_IN_MONTH = 100;
 
-        public static int computeEmpWage(string COMPANY, int EMP_RATE_PER_HOUR, int NUM_OF_WORKING_DAYS, int MAX_HRS_IN_MONTH)
+        private string COMPANY;
+        private  int EMP_RATE_PER_HOUR;
+        private  int NUM_OF_WORKING_DAYS;
+        private  int MAX_HRS_IN_MONTH;
+        private int totalEmpWage;
+
+        public EmpWageBuilderObject(string COMPANY, int EMP_RATE_PER_HOUR, int NUM_OF_WORKING_DAYS, int MAX_HRS_IN_MONTH)
+        {
+              this.COMPANY = COMPANY;
+              this.EMP_RATE_PER_HOUR = EMP_RATE_PER_HOUR;
+              this.NUM_OF_WORKING_DAYS = NUM_OF_WORKING_DAYS;
+              this.MAX_HRS_IN_MONTH = MAX_HRS_IN_MONTH;
+            
+        }
+
+
+        public void computeEmpWage()
         {
             //Variable
             int empHrs = 0;
             int totalWorkingDays = 0;
             int totalEmpHr = 0;
-            while (totalEmpHr <= MAX_HRS_IN_MONTH && totalWorkingDays < NUM_OF_WORKING_DAYS)
+            while (totalEmpHr <= this.MAX_HRS_IN_MONTH && totalWorkingDays < this.NUM_OF_WORKING_DAYS)
             {
                 totalWorkingDays++;
                 Random random = new Random();
@@ -41,9 +54,13 @@ using System.Text;
                 totalEmpHr += empHrs;
                 Console.WriteLine("Days : " + totalWorkingDays + "       " + "Emp Hrs : " + empHrs);
             }
-            int totalEmpWage = totalEmpHr * EMP_RATE_PER_HOUR;
+            totalEmpWage = totalEmpHr * this.EMP_RATE_PER_HOUR;
             Console.WriteLine("Total Emp Wage : " + totalEmpWage);
-            return totalEmpWage;
+           
+        }
+        public string toString()
+        {
+            return "total emp wage for company : " + this.COMPANY + "is" + this.totalEmpWage;
         }
     }
-//}
+}

@@ -1,14 +1,18 @@
 ﻿using System;
 
+
 namespace employeeWage
 {
     class Program
     {  static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to Employee Wage Computation");
-            //Employee myCompany = new Employee();
-           Employee.computeEmpWage("Dmart", 20, 2, 10);
-            Employee.computeEmpWage("Reliance", 10, 4, 20);
+            EmpWageBuilderObject Dmart = new EmpWageBuilderObject("Dmart", 20, 2, 10);
+            EmpWageBuilderObject Reliancee = new EmpWageBuilderObject("Reliance", 10, 4, 20);
+            Dmart.computeEmpWage();
+            Console.WriteLine(Dmart.toString());
+            Reliancee.computeEmpWage();
+            Console.WriteLine(Reliancee.toString());
+
         }
     }
 }
