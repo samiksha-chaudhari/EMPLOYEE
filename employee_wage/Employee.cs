@@ -60,7 +60,7 @@ namespace EmployeeWage
                         break;
                 }
                 totalHours += empHour;
-                Console.WriteLine("Day {0} Employee hours {1}", workingDay, totalHours);
+              //  Console.WriteLine("Day {0} Employee hours {1}", workingDay, totalHours);
             }
             return totalHours * companyEmpWage.empRatePerHour;
 
