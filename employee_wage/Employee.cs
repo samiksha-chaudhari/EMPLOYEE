@@ -2,9 +2,16 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace EmpWage
+namespace EmployeeWage
 {
-    class EmpWageBuilder
+    //using iterface
+    public interface IComputeEmpWage //interface
+    {
+        public void addCompanyEmp(string company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonths);
+        public void computeEmpWage();
+
+    }
+    class EmpWageBuilder : IComputeEmpWage //EmpWageBuilder implimented IComputeEmpWage interface
     {
         public const int IS_PART_TIME = 1;
         public const int IS_FULL_TIME = 2;
@@ -23,12 +30,11 @@ namespace EmpWage
             companyCount++;
         }
 
-        //Computing emp wage
-        public void computeEmpWage()
+        public void computeEmpWage() ////Computing employee wage
         {
             for (int i = 0; i < companyCount; i++)
             {
-                companyEmpWages[i].setTotalEmpWage(this.computeEmpWage(this.companyEmpWages[i]));
+                companyEmpWages[i].setSalary(this.computeEmpWage(this.companyEmpWages[i]));
                 Console.WriteLine(this.companyEmpWages[i].toString());
             }
         }
@@ -54,7 +60,7 @@ namespace EmpWage
                         break;
                 }
                 totalHours += empHour;
-                Console.WriteLine("Day's {0} Employee hours {1}", workingDay, totalHours);
+                Console.WriteLine("Day {0} Employee hours {1}", workingDay, totalHours);
             }
             return totalHours * companyEmpWage.empRatePerHour;
 

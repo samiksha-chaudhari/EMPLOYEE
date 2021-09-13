@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace EmpWage
+namespace EmployeeWage
 {
     public class CompanyEmpWage
     {
@@ -19,13 +19,13 @@ namespace EmpWage
             this.maxHoursPerMonths = maxHoursPerMonths;
         }
 
-        public void setTotalEmpWage(int totalEmpWage)
+        public void setSalary(int totalEmpWage)
         {
             this.totalEmpWage = totalEmpWage;
         }
         public string toString()
         {
-            return "Total Employee wage for company: " + company + " is " + totalEmpWage;
+            return "total Employee wage for company: " + company + " is " + totalEmpWage;
         }
     }
 }
